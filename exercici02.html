@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <script src="exercici02.js" defer></script>
+    <style>
+        table, td {
+            border: 2px solid lightseagreen;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 2</h1>
+    <div id="taula_propietats"></div>
+
+    <br><br>
+    <span id="cuentaAtrasMinutos">00</span>:<span id="cuentaAtrasSegundos">00</span>
+
+    <br><br>
+    <input type="number" name="input_minutos" id="input_minutos" min="0" max="59" value="0">
+    <input type="number" name="input_segundos" id="input_segundos" min="0" max="59" value="0">
+
+    <button type="button" onclick="startCuentaAtras()">START</button>
+    <button type="button" onclick="stopCuentaAtras()">STOP</button>
+    <button type="button" onclick="pauseCuentaAtras()">PAUSE</button>
+
+
+</body>
+</html>
