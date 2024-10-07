@@ -90,8 +90,8 @@ function pauseCuentaAtras() {
 // e. En qualsevol moment l’usuari pot reproduir i aturar la música de l’alarm
 let reloj = setInterval(myTimer, 1000); //ponemos myTimer sin () porque queremos pasar la referencia, sino se ejecutaría inmediatamente y 1 sola vez
 let horaAlarma;
-let alarmaSonando = false;
 let audio = new Audio();
+let currentTimeAudio;
 
 function myTimer() {
     let t = new Date();
@@ -101,8 +101,7 @@ function myTimer() {
     if(horaAlarma) { //si no es null ni undefined (o sea, si se ha hecho el setAlarm)
         if(horaActual == horaAlarma) {
             console.log("COINCIDE ALARMA CON HORA");
-            alarmaSonando = true;
-            playMusic();
+            playAlarmMusic();
         }
     }
 }
@@ -113,8 +112,8 @@ function setAlarm() {
     document.getElementById("mensajeConfirmacion").innerHTML = "Se ha programado la alarma con éxito!";
 }
 
-function playMusic() {
-    audio.src = document.getElementById("musica").value;
+function playAlarmMusic() {
+    audio.src = document.getElementById("musica").value; //coge el valor del select
     console.log("Iniciando reproducción de la canción...");
     audio.play();
 }
@@ -128,5 +127,21 @@ function stopAlarm() {
 
 function changeVolume() {
     audio.volume = document.getElementById("vol").value;
+}
+
+function playMusic() {
+    if(audio.paused) { //si el audio está pausado lo volvemos a reproducir
+        audio.currentTime = currentTimeAudio;
+        console.log("Reproduciendo audio desde el minuto: " + audio.currentTime);
+        audio.play();
+    }
+}
+
+function pauseMusic() {
+    if(!audio.paused) { //si el audio no está pausado lo pausamos
+        audio.pause();
+    }
+    currentTimeAudio = audio.currentTime;
+    console.log("Audio pausado en el minuto: " + currentTimeAudio);
 }
 

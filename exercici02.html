@@ -25,7 +25,7 @@
 
 
     <!--CUENTA ATRAS DEL EJERCICIO 4-->
-    <br><br>
+    <br><br><br>
     <span id="cuentaAtrasMinutos">0</span>:<span id="cuentaAtrasSegundos">0</span>
 
     <br><br>
@@ -38,7 +38,7 @@
 
 
     <!--EJERCICIO 5: RELOJ QUE MUESTRA LA HORA ACTUAL-->
-    <br><br>
+    <br><br><br>
     <p id="reloj"></p>
 
     <!--ALARMA-->
@@ -56,11 +56,11 @@
         <option value="sad-soul-chasing-a-feeling-185750.mp3">Sad Soul</option>
     </select>
 
-    <!--BARRA PARA SELECCIONAR EL VOLUMEN-->
+    <!--BARRA PARA SELECCIONAR EL VOLUMEN, JUNTO CON EL PLAY Y PAUSE DE LA MUSICA DE LA ALARMA-->
     <br><br>
     <label for="vol">Volumen: </label>
     <input type="range" id="vol" min="0" max="1" step="0.2" onchange="changeVolume()">
-    <button onclick="">PLAY</button>
-    <button onclick="">PAUSE</button>
+    <button onclick="playMusic()">PLAY</button>
+    <button onclick="pauseMusic()">PAUSE</button>
 </body>
 </html>
