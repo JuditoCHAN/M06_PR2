@@ -11,14 +11,22 @@
             border-collapse: collapse;
             padding: 10px;
         }
+
+        #cuentaAtrasMinutos, #cuentaAtrasSegundos, #reloj {
+            font-size: 25px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Ejercicio 2</h1>
+    <!--TABLA DEL EJERCICIO 3-->
     <div id="taula_propietats"></div>
 
+
+    <!--CUENTA ATRAS DEL EJERCICIO 4-->
     <br><br>
-    <span id="cuentaAtrasMinutos">00</span>:<span id="cuentaAtrasSegundos">00</span>
+    <span id="cuentaAtrasMinutos">0</span>:<span id="cuentaAtrasSegundos">0</span>
 
     <br><br>
     <input type="number" name="input_minutos" id="input_minutos" min="0" max="59" value="0">
@@ -29,5 +37,30 @@
     <button type="button" onclick="pauseCuentaAtras()">PAUSE</button>
 
 
+    <!--EJERCICIO 5: RELOJ QUE MUESTRA LA HORA ACTUAL-->
+    <br><br>
+    <p id="reloj"></p>
+
+    <!--ALARMA-->
+    <label for="alarma">Establecer alarma: </label>
+    <input type="time" name="alarma" id="alarma" step="1">
+    <button onclick="setAlarm()">OK!</button>
+    <button onclick="stopAlarm()">STOP ALARM</button>
+    <span style="color: limegreen;" id="mensajeConfirmacion"></span>
+
+    <!--SELECT PARA SELECCIONAR LA CANCION DE LA ALARMA-->
+    <br><br>
+    <label for="musica">Selecciona la música de la alarma: </label>
+    <select name="musica" id="musica">
+        <option value="mellow-future-bass-bounce-on-it-184234.mp3">Mellow Future Bass </option>
+        <option value="sad-soul-chasing-a-feeling-185750.mp3">Sad Soul</option>
+    </select>
+
+    <!--BARRA PARA SELECCIONAR EL VOLUMEN-->
+    <br><br>
+    <label for="vol">Volumen: </label>
+    <input type="range" id="vol" min="0" max="1" step="0.2" onchange="changeVolume()">
+    <button onclick="">PLAY</button>
+    <button onclick="">PAUSE</button>
 </body>
 </html>
